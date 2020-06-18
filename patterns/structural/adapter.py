@@ -28,6 +28,8 @@ http://python-3-patterns-idioms-test.readthedocs.io/en/latest/ChangeInterface.ht
 Allows the interface of an existing class to be used as another interface.
 """
 
+# 适配模式：已有很多类，类似但不统一，加个适配类
+# 实现：设置函数映射表
 
 class Dog:
     def __init__(self):

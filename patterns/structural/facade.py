@@ -28,6 +28,9 @@ http://python-3-patterns-idioms-test.readthedocs.io/en/latest/ChangeInterface.ht
 Provides a simpler unified interface to a complex system.
 """
 
+# 门面模式
+# 有很多组件，需要组合运行，内部流程可能很复杂，封装成简单的接口
+# 实现：多个组件+管理类
 
 # Complex computer parts
 class CPU:

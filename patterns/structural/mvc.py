@@ -3,7 +3,12 @@
 Separates data in GUIs from the ways it is presented, and accepted.
 """
 
+# model，存储数据
+# view，基于模型api，写视图
+# 控制器，不同模型不同视图
 
+
+# 模型
 class Model:
     def __iter__(self):
         raise NotImplementedError
@@ -18,6 +23,7 @@ class Model:
         raise NotImplementedError
 
 
+# 产品模型
 class ProductModel(Model):
     class Price(float):
         """A polymorphic way to pass a float with a particular
@@ -44,7 +50,7 @@ class ProductModel(Model):
         except KeyError as e:
             raise KeyError(str(e) + " not in the model's item list.")
 
-
+# 抽象视图
 class View:
     def show_item_list(self, item_type, item_list):
         raise NotImplementedError
@@ -58,6 +64,7 @@ class View:
         raise NotImplementedError
 
 
+# 终端视图
 class ConsoleView(View):
     def show_item_list(self, item_type, item_list):
         print(item_type.upper() + ' LIST:')
@@ -80,7 +87,7 @@ class ConsoleView(View):
     def item_not_found(self, item_type, item_name):
         print('That {} "{}" does not exist in the records'.format(item_type, item_name))
 
-
+# 控制器，有模型和视图
 class Controller:
     def __init__(self, model, view):
         self.model = model

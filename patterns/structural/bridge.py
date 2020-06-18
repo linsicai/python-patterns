@@ -6,6 +6,8 @@ http://en.wikibooks.org/wiki/Computer_Science_Design_Patterns/Bridge_Pattern#Pyt
 Decouples an abstraction from its implementation.
 """
 
+# 已有多个统一格式的类，使用方选一个使用，可以搭个桥连接起来
+# 实现：接口类
 
 # ConcreteImplementor 1/2
 class DrawingAPI1:

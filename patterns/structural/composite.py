@@ -26,27 +26,34 @@ https://infinitescript.com/2014/10/the-23-gang-of-three-design-patterns/
 Describes a group of objects that is treated as a single instance.
 """
 
+# 定义了标准，各有各的实现，但又有组合的需求时，画图里面使用比较多
+# 实现：抽象类+实现类+组合类
 
+# 抽象组件
 class Graphic:
+    # 定义需要实现的函数
     def render(self):
         raise NotImplementedError("You should implement this.")
 
 
+# 合成组件
 class CompositeGraphic(Graphic):
     def __init__(self):
         self.graphics = []
 
+    // 合成组件渲染
     def render(self):
         for graphic in self.graphics:
             graphic.render()
 
+    # 增加与删除组件
     def add(self, graphic):
         self.graphics.append(graphic)
-
     def remove(self, graphic):
         self.graphics.remove(graphic)
 
 
+# 椭圆
 class Ellipse(Graphic):
     def __init__(self, name):
         self.name = name

@@ -5,17 +5,21 @@
 Provides a centralized entry point that controls and manages request handling.
 """
 
+# 前端控制器
+# 将特定请求分配到请求分配器上，分配器根据请求做不同操作
 
+
+# 手机视图
 class MobileView:
     def show_index_page(self):
         print('Displaying mobile index page')
 
-
+# 表视图
 class TabletView:
     def show_index_page(self):
         print('Displaying tablet index page')
 
-
+# 分配器
 class Dispatcher:
     def __init__(self):
         self.mobile_view = MobileView()
@@ -29,7 +33,7 @@ class Dispatcher:
         else:
             print('cant dispatch the request')
 
-
+# 请求控制器
 class RequestController:
     """ front controller """
 

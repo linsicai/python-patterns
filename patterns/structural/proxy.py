@@ -15,7 +15,10 @@ Add functionality or logic (e.g. logging, caching, authorization) to a resource
 without changing its interface.
 """
 
+# 通过代理模式去使用最终类，中途可以做很多事
 
+
+# 订阅接口
 class Subject:
     """
     As mentioned in the document, interfaces of both RealSubject and Proxy should
@@ -29,7 +32,7 @@ class Subject:
     def do_the_job(self, user):
         raise NotImplementedError()
 
-
+# 订阅实现
 class RealSubject(Subject):
     """
     This is the main job doer. External services like payment gateways can be a
@@ -39,7 +42,7 @@ class RealSubject(Subject):
     def do_the_job(self, user):
         print(f'I am doing the job for {user}')
 
-
+# 代理
 class Proxy(Subject):
     def __init__(self):
         self._real_subject = RealSubject()

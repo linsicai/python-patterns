@@ -3,7 +3,14 @@
 Separates presentation, application processing, and data management functions.
 """
 
+# 3层
+# 数据层、应用层、表现层
+# 数据层管数据如何存储
+# 应用层管api
+# 表现层关如何展示数据
 
+
+# 数据层
 class Data:
     """ Data Store Class """
 
@@ -17,7 +24,7 @@ class Data:
         print("(Fetching from Data Store)")
         return {'products': self.products}
 
-
+# 业务层
 class BusinessLogic:
     """ Business logic holding data store instances """
 
@@ -29,7 +36,7 @@ class BusinessLogic:
     def product_information(self, product):
         return self.data['products'].get(product, None)
 
-
+# 表现层
 class Ui:
     """ UI interaction class """
 
@@ -38,12 +45,14 @@ class Ui:
 
     def get_product_list(self):
         print('PRODUCT LIST:')
+
         for product in self.business_logic.product_list():
             print(product)
         print('')
 
     def get_product_information(self, product):
         product_info = self.business_logic.product_information(product)
+
         if product_info:
             print('PRODUCT INFORMATION:')
             print(

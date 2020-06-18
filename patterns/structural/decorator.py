@@ -24,7 +24,10 @@ https://sourcemaking.com/design_patterns/decorator
 Adds behaviour to object without affecting its class.
 """
 
+# 装饰器，拿到原文后，需要装饰一下，如加粗、斜体等
+# 实现：拿到原文后，再处理一把
 
+# 文本
 class TextTag:
     """Represents a base text tag"""
 
@@ -34,7 +37,7 @@ class TextTag:
     def render(self):
         return self._text
 
-
+# 粗体
 class BoldWrapper(TextTag):
     """Wraps a tag in <b>"""
 
@@ -44,7 +47,7 @@ class BoldWrapper(TextTag):
     def render(self):
         return "<b>{}</b>".format(self._wrapped.render())
 
-
+# 斜体
 class ItalicWrapper(TextTag):
     """Wraps a tag in <i>"""
 
